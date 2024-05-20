@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DocsApp.Data;
 using DocsApp.Models;
+using System.Security.Claims;
 
 namespace DocsApp.Controllers
 {
@@ -24,25 +25,6 @@ namespace DocsApp.Controllers
         {
             var applicationDbContext = _context.Docs.Include(d => d.User);
             return View(await applicationDbContext.ToListAsync());
-        }
-
-        // GET: Documents/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var document = await _context.Docs
-                .Include(d => d.User)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (document == null)
-            {
-                return NotFound();
-            }
-
-            return View(document);
         }
 
         // GET: Documents/Create
@@ -78,11 +60,10 @@ namespace DocsApp.Controllers
             }
 
             var document = await _context.Docs.FindAsync(id);
-            if (document == null)
+            if (document.UserId != User.FindFirstValue(ClaimTypes.NameIdentifier))
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", document.UserId);
             return View(document);
         }
 
@@ -137,7 +118,10 @@ namespace DocsApp.Controllers
             {
                 return NotFound();
             }
-
+            if (document.UserId != User.FindFirstValue(ClaimTypes.NameIdentifier))
+            {
+                return NotFound();
+            }
             return View(document);
         }
 
