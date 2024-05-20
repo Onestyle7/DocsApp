@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using DocsApp.Data;
 using DocsApp.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DocsApp.Controllers
 {
+    [Authorize]
     public class DocumentsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -30,7 +32,7 @@ namespace DocsApp.Controllers
         // GET: Documents/Create
         public IActionResult Create()
         {
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
+            
             return View();
         }
 
