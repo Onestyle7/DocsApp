@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using DocsApp.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace DocsApp.Data
@@ -9,5 +10,6 @@ namespace DocsApp.Data
             : base(options)
         {
         }
+        public DbSet<Document> Docs { get; set; }
     }
 }
