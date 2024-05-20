@@ -25,8 +25,10 @@ namespace DocsApp.Controllers
         // GET: Documents
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Docs.Include(d => d.User);
-            return View(await applicationDbContext.ToListAsync());
+            var applicationDbContext = from c in _context.Docs
+                                       select c;
+            applicationDbContext = applicationDbContext.Where(a => a.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return View(await applicationDbContext.Include(d => d.User).ToListAsync());
         }
 
         // GET: Documents/Create
