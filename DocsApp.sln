@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocsApp", "DocsApp.csproj", "{B2408F2A-53C0-412C-ABDA-59D96A379945}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocsApp", "DocsApp.csproj", "{B2408F2A-53C0-412C-ABDA-59D96A379945}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
