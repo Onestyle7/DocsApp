@@ -1,22 +1,119 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    padding-bottom: 100px;
+}
+.header {
+    background-color: #4a90e2;
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+.header h1{
+    font-size: 3em;
+    margin: 0;
+}
+.header p{
+    font-size: 1.2em;
+}
+header .navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header a.navbar-brand {
+    color: #ff6347;
+    font-weight: bold;
+}
+
+header a.nav-link {
+    color: #333;
+}
+
+    header a.nav-link:hover {
+        color: #ff6347;
+    }
+.features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 50px 0;
+    text-align: center;
+}
+.feature {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+}
+.feature h3 {
+        margin-top: 0;
+}
+    .feature p {
+        font-size: 0.9em;
+        color: #666;
+    }
+.container {
+    max-width: 1200px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card img {
+        max-width: 100%;
+        border-radius: 8px;
+    }
+
+.card-title {
+    font-size: 1.5em;
+    color: #ff6347;
+    margin-bottom: 10px;
+}
+
+.card-description {
+    color: #555;
+}
+.cta {
+    background-color: #ff6347;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 50px 20px;
+}
+    .cta a {
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 10px 20px;
+        background-color: #333;
+        border-radius: 5px;
+    }
+.footer {
+    max-height: 100px;
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #eaeaea;
+    font-size: 0.9em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
 }
