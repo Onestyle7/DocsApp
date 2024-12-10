@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  docsapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: docsapp
+    ports:
+      - "5000:80" # Przekierowanie portu hosta na port kontenera
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=db;Database=DocsAppDb;User=sa;Password=YourStrongPassword!
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrongPassword!
+    ports:
+      - "1433:1433" # SQL Server
+    networks:
+      - app-network
+    volumes:
+      - sql-data:/var/opt/mssql
+
+networks:
+  app-network:
+
+volumes:
+  sql-data:
